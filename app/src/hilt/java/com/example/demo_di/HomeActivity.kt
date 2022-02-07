@@ -18,21 +18,25 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        var d:ArrayList<Note> = ArrayList()
-        for(i :Int in 10..200){
+        var d: ArrayList<Note> = ArrayList()
+        homeViewModel.noteList.observe(this, object : Observer<List<Note>> {
+            override fun onChanged(t: List<Note>?) {
+                Log.d(TAG, "onChanged: " + t.toString())
+            }
+
+        })
+        initData()
+    }
+
+    private fun initData() {
+        for (i: Int in 10..200) {
             val note = Note.Builder()
             note.title("duc")
-            note.createdDate=10000
+            note.createdDate = 10000
             d.add(note.build())
 
         }
         homeViewModel.insertNotes(d)
         homeViewModel.getAllNotes()
-        homeViewModel.noteList.observe(this, object : Observer<List<Note>>{
-            override fun onChanged(t: List<Note>?) {
-                Log.d(TAG, "onChanged: "+ t.toString())
-            }
-
-        })
     }
 }
