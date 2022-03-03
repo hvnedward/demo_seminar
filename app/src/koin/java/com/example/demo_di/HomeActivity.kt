@@ -62,5 +62,8 @@ class HomeActivity : AppCompatActivity() {
         homeViewModel.insertNotes(d)
         homeViewModel.getAllNotes()
     }
+    fun mainc(){
+        //this change from main
+    }
     //can drop or clear koin by calling stopKoin()
 }
