@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
             click.singleClick(2)
         }
         view.setOnClickListener {
-//            count++
+            count++
 //            val click : ISingleClick<Any> by inject (qualifier = named("screen"))
 
         }
