@@ -47,6 +47,7 @@ class HomeActivity : AppCompatActivity() {
         view.setOnClickListener {
             count++
 //            val click : ISingleClick<Any> by inject (qualifier = named("screen"))
+            val click : ISingleClick<Any> by inject (qualifier = named("screen"))
 
         }
     }
@@ -61,6 +62,10 @@ class HomeActivity : AppCompatActivity() {
         }
         homeViewModel.insertNotes(d)
         homeViewModel.getAllNotes()
+    }
+
+    fun change(){
+        //this is dev commit
     }
     fun mainc(){
         //this change from main
